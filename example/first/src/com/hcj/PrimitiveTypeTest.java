@@ -1,5 +1,7 @@
 package com.hcj;
 
+import java.math.BigDecimal;
+
 /**
  * Created by hechengjin on 17-6-28.
  */
@@ -57,5 +59,15 @@ public class PrimitiveTypeTest {
         // 以数值形式而不是字符形式将Character.MAX_VALUE输出到控制台
         System.out.println("最大值：Character.MAX_VALUE="
                 + (int) Character.MAX_VALUE);
+    }
+
+    public static void BigDecimalComp() {
+        BigDecimal bug = new BigDecimal(-1);
+        if (bug.equals(new BigDecimal(-1))){
+            System.out.println("equal!");
+        }
+        else {
+            System.out.println("not equal!");
+        }
     }
 }
