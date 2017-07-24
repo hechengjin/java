@@ -6,6 +6,7 @@ public class Main {
 
 	    System.out.println("Hello World!");
         //基本数据类型测试
+        PrimitiveTypeTest.DateTest();
         PrimitiveTypeTest.getTypeInfo();
         PrimitiveTypeTest.BigDecimalComp();
     }

@@ -1,6 +1,8 @@
 package com.hcj;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by hechengjin on 17-6-28.
@@ -69,5 +71,20 @@ public class PrimitiveTypeTest {
         else {
             System.out.println("not equal!");
         }
+    }
+
+    public static void DateTest() {
+        Date dateBegin = null;
+        String strBeginTime = "2017-07-24 10:11:11";
+        try{
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            dateBegin = sdf.parse(strBeginTime);
+            System.out.println(sdf.format(dateBegin));
+        } catch (Exception ex){
+            System.out.print(ex.getMessage());
+        }
+        Long beginTime = 0l;
+        beginTime = dateBegin.getTime();
+        System.out.println(beginTime);
     }
 }
