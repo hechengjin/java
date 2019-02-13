@@ -10,6 +10,7 @@ package com.maven.archetype.threadlocal;
 * https://www.jianshu.com/p/98b68c97df9b
 * 和HashMap的最大的不同在于，ThreadLocalMap结构非常简单，没有next引用，也就是说ThreadLocalMap中解决Hash冲突的方式并非链表的方式，而是采用线性探测的方式，
 * 所谓线性探测，就是根据初始key的hashcode值确定元素在table数组中的位置，如果发现这个位置上已经有其他key值的元素被占用，则利用固定的算法寻找一定步长的下个位置，依次判断，直至找到能够存放的位置。
+* map是线程里的map，线程里的map防止多个threadlocal哈希冲突，而采用线性探测
  */
 
 public class ThreadLocalDemo {
@@ -25,6 +26,8 @@ public class ThreadLocalDemo {
     };
 
     public static void main(String[] args) {
+        System.out.println(Thread.currentThread().getId() + " " + Thread.currentThread().getName());
+
         Thread[] threads = new Thread[5];
 
         for (int i =0 ; i < 5; i++) {
@@ -32,7 +35,7 @@ public class ThreadLocalDemo {
             threads[i] = new Thread( ()-> {
                 int num = local.get().intValue();
                 num+=5;
-                System.out.println(Thread.currentThread().getName() + ":" + num);
+                System.out.println(Thread.currentThread().getId() + " " + Thread.currentThread().getName() + ":" + num);
             });
         }
 
