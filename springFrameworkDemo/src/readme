@@ -1,0 +1,5 @@
+1.创建maven-archetype-quickstart() 工程
+2.添加maven下的javax.servlet依赖
+3.手动添加resources和webapp目录
+4.注意添加jetty插件的方法，要在pom.xml中的两处添加
+右侧Maven Projects中找到jetty，右键jetty:run运行
