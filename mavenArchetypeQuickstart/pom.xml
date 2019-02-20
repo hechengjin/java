@@ -30,7 +30,16 @@
       <artifactId>junit</artifactId>
       <version>RELEASE</version>
     </dependency>
+
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-all</artifactId> <!-- Use 'netty-all' for 4.0 or above -->
+      <version>4.1.6.Final</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
+
+
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
