@@ -32,11 +32,33 @@ public class ThreadLocalDemo {
 
         for (int i =0 ; i < 5; i++) {
             //λ(Lambda)表达式 Language Level 8
-            threads[i] = new Thread( ()-> {
-                int num = local.get().intValue();
-                num+=5;
-                System.out.println(Thread.currentThread().getId() + " " + Thread.currentThread().getName() + ":" + num);
-            });
+//            threads[i] = new Thread( ()-> {
+//                int num = local.get().intValue();
+//                num+=5;
+//                System.out.println(Thread.currentThread().getId() + " " + Thread.currentThread().getName() + ":" + num);
+//            });
+            if (i==3 ){
+                threads[i] = new Thread( new Runnable() {
+
+                    @Override
+                    public void run() {
+                        int num = local.get().intValue();
+                        num+=3;
+                        System.out.println(Thread.currentThread().getId() + " " + Thread.currentThread().getName() + ":" + num);
+                    }
+                });
+            } else {
+                threads[i] = new Thread( new Runnable() {
+
+                    @Override
+                    public void run() {
+                        int num = local.get().intValue();
+                        num+=10;
+                        System.out.println(Thread.currentThread().getId() + " " + Thread.currentThread().getName() + ":" + num);
+                    }
+                });
+            }
+
         }
 
         for (int i=0; i < 5; i++){
